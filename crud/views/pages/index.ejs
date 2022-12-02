@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        table tr th {
+            border: 1px solid black;
+            padding:2%;
+           
+        }
+        table tr td {
+            border: 1px solid black;
+            padding:2%;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="/" method="post">
+      <label for="nama">Nama</label>
+      <input type="text" id="name" name="nama"><br>
+      <label for="kelas">Kelas</label>
+      <input type="text" id="kelas" name="kelas">
+      <input type="submit" name="submit" id="" value="save">
+    </form>
+    <hr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Kelas</th> 
+            <th>Pilihan</th>
+        </tr>
+        
+        <% hasil.forEach((hsl) => { %>
+            <tr>
+                <td><%= hsl.id %></td>
+                <td><%= hsl.nama %></td><td><%= hsl.kelas %></td>
+            <td><button onclick='hapus("<%= hsl.id%>")'>hapus</button></td>
+            </tr>
+            <% }) %>
+    </table>
+ 
+
+</body>
+</html>
+<script>
+    const hapus = (id) => {
+        window.location.href= "/delete/"+id
+    }
+</script>
